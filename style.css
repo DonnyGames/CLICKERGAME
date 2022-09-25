@@ -1,0 +1,49 @@
+.dik {
+    font-weight: bold;
+    text-align: center;
+    font-size: 5rem;
+}
+
+#image1 {
+    position: relative;
+    left: 45rem;
+    width:500px;
+    height:500px;
+}
+.leftbig {
+    font-size: 1.7rem;
+    position: relative;
+    left: -20rem;
+    top: -35rem;
+    
+}
+.leftbig1 {
+    font-size: 1.7rem;
+    position: relative;
+    left: -37rem;
+    top: -32rem;
+    
+}
+
+.upper_right {
+    text-align: right;
+    position: relative;
+    top:-30rem;
+    border: 5px thin;
+
+border-radius: 5px;
+
+}
+ul {
+    text-align: right;
+    position: relative;
+    top:-30rem;
+ 
+   
+}
+
+
+
+body {
+    user-select: none;
+}
