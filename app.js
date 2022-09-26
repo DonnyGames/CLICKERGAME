@@ -14,10 +14,23 @@ var buttonVar =  document.getElementById("buttonVar")
 
 
 
+
+
 //functions//
 function addScore(amount) {
     scripts = scripts + amount;
-    document.getElementById("scripts").innerHTML = scripts;
+
+    if (scripts < 1000) {
+        document.getElementById("scripts").innerHTML = scripts;
+    } else {
+        console.log(`${scripts/1000}`.length)
+
+        if (`${scripts/1000}`.length > 3) {
+            document.getElementById("scripts").innerHTML = `${scripts / 1000}`.slice(0, -2) + "k";
+        } else {
+            document.getElementById("scripts").innerHTML = `${scripts / 1000}k`;
+        }
+    }
 }
 
 function imagePressed() {
@@ -51,5 +64,6 @@ function buyVar() {
 setInterval (function () {
     scripts = scripts + tags;
     scripts = scripts + Vars * 5;
-    document.getElementById("scripts").innerHTML = scripts;
 }, 1000); //1000 ms = 1secons lol
+
+setInterval(() => { if (isNaN(scripts)) location.reload(); }, 100);
