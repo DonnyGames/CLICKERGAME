@@ -49,3 +49,5 @@ setInterval (function () {
     document.getElementById("scripts").innerHTML = scripts;
 }, 1000); //1000 ms = 1secons lol
 
+
+
