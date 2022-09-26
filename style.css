@@ -6,9 +6,10 @@
 
 #image1 {
     position: relative;
-    left: 45rem;
+    left: 33rem;
     width:500px;
     height:500px;
+    top:-2rem;
 }
 .leftbig {
     font-size: 1.7rem;
