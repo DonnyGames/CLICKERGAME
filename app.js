@@ -4,7 +4,7 @@ console.log("Welcome player!");
 
 //variables//
 var scripts = 0;
-var image = document.getElementById("image")
+var image1 = document.getElementById("image1")
 var tagCost = 15;
 var tags = 0;
 var VarCost = 100;
@@ -13,10 +13,15 @@ var ClickingPower = 1
 var buttonVar =  document.getElementById("buttonVar")
 
 
+
 //functions//
 function addScore(amount) {
     scripts = scripts + amount;
     document.getElementById("scripts").innerHTML = scripts;
+}
+
+function imagePressed() {
+    addScore(ClickingPower);
 }
 
 function buyTag() {
@@ -48,6 +53,3 @@ setInterval (function () {
     scripts = scripts + Vars * 5;
     document.getElementById("scripts").innerHTML = scripts;
 }, 1000); //1000 ms = 1secons lol
-
-
-
