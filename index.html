@@ -8,13 +8,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p class="dik">SCRIPTS: <span id="scripts">0</span></p>
+
+
+    <div class="scriptcontainer">
+    <span id="scripts">0</span> scripts<br>
+    <span id="scriptspersecond">0</span> SPS<br>
+    </div>
+
+
+
+
    <div class="imgdiv">
     <img id="image1" src="./images/download (1).png" onclick="imagePressed()">
    </div>
-    <button onclick="buyTag()" class="leftbig">SCRIPT TAG [<span id="tagCost">15</span>] -- <span id="tags">0</span></button>
-    <button  onclick="buyVar()" class="leftbig1">VARIABLE [<span id="VarCost">100</span>] -- <span id="Vars">0</span></button>
+  
 
+   <div class="buttonsection">
+    <table class="ShopButton" onclick="buyTag()">
+        <tr>
+            <td id="image"><img src="./images/scripttag.png"></td>
+            <td id="NameAndCost">
+                <p>Script tag</p>
+                <p><span id="tagCost">15</span> Scripts</p>
+            </td>
+            <td id="amount"><span id="tags">0</span></td>
+            
+            
+            </tr>
+
+    </table>
+    <br>
+    <table class="ShopButton" onclick="buyVar()">
+        <tr>
+            <td id="image"><img src="./images/variable.png"></td>
+            <td id="NameAndCost">
+                <p>Variable</p>
+                <p><span id="VarCost">100</span> Scripts</p>
+            </td>
+            <td id="amount"><span id="Vars">0</span></td>
+            
+            
+            </tr>
+
+    </table>
+    <br>
+    <table class="ShopButton" onclick="buyBakkie()">
+        <tr>
+            <td id="image"><img src="./images/bakkie.jpg"></td>
+            <td id="NameAndCost">
+                <p>Bakkie</p>
+                <p><span id="bakkieCost">1000</span> Scripts</p>
+            </td>
+            <td id="amount"><span id="bakkies">0</span></td>
+            
+            
+            </tr>
+
+    </table>
+    
+</div>
 
     <p class="upper_right">Instruction time!<br> This game is made with love by the producer DonnyGames.<br>
     The main thing u need to do is just click<br> on the javascript image and UPGRADE THAT SHIT<br>

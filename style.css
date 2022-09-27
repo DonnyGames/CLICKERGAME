@@ -1,16 +1,15 @@
-.dik {
+#scripts {
     font-weight: bold;
     text-align: center;
     font-size: 5rem;
 }
 
 #image1 {
-    position: relative;
+
     left: 33rem;
     width:500px;
     height:500px;
-    top:-2rem;
-
+   
     margin: auto;
     display: flex;
 }
@@ -54,10 +53,77 @@ body {
     width: 700px;
     height: 700px;
     position: relative;
-    left:-8rem;
+    left:16rem;
 }
 
 #image1:active {
     width: 480px;
     height: 480px;
+    transition: all ease-in-out;
 }
+
+
+#scriptspersecond {
+    font-size: 2em;
+}
+span {
+    color:gold;
+}
+
+body {
+    background-color: rgb(83, 80, 0);
+}
+
+.scriptcontainer {
+    background-color: rgb(172, 130, 24);
+    width: 15%;
+    padding:10px;
+    border-radius: 10px;
+}
+
+.ShopButton {
+    background-color: #b5b5b5;
+    position: relative;
+    right: -92rem;
+    bottom: 53rem;
+    transition: all .2s ease-in-out;
+    border-radius: 10px;
+    width:100%
+    margin 10px 0px 10px 0px;
+    
+    
+}
+table span {
+    color: black;
+
+}
+
+.ShopButton:hover {
+    background-color: #c7c7c7;
+    transition: all .2s ease-in-out;
+}
+
+.ShopButton #image {
+    width:30%;
+}
+.ShopButton img {
+    width:120px;
+    height:64px;
+    border-radius: 5px;
+}
+
+.ShopButton #NameAndCost p {
+    margin:0px;
+    width: 60%;
+}
+.ShopButton #NameAndCost p:first-of-type {
+    font-size: larger;
+}
+
+.ShopButton #amount {
+    font-size: 48px;
+    color: #595959;
+    width: 15%;
+    font-family: roboto;;
+}
+
