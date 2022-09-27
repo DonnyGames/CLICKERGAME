@@ -62,8 +62,8 @@ function buyBakkie() {
         bakkies = bakkies + 1
         bakkieCost = Math.round(bakkieCost * 1.15);
         document.getElementById("scripts").innerHTML = scripts;
-        document.getElementById("tagCost").innerHTML = bakkieCost;
-        document.getElementById("tags").innerHTML = bakkies;
+        document.getElementById("bakkieCost").innerHTML = bakkieCost;
+        document.getElementById("bakkies").innerHTML = bakkies;
         console.log(`Tag ${bakkies} has been bought successfully`);
         updateSPS();
     }
