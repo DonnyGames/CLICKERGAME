@@ -76,6 +76,73 @@ function updateSPS () {
     document.getElementById("scriptspersecond").innerHTML = scriptspersecond;
 }
 
+
+function saveGame() {
+    var gameSave = {
+scripts:scripts,
+ClickingPower:ClickingPower,
+tagCost:tagCost,
+tags:tags,
+VarCost:VarCost,
+Vars:Vars,
+bakkieCost:bakkieCost,
+bakkies:bakkies
+
+    };
+
+    localStorage.setItem("gameSave", JSON.stringify(gameSave))
+}
+
+function loadGame() {
+    var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+    if (typeof savedGame.scripts !== "undefined") {
+        scripts = savedGame.scripts;
+    }
+    if (typeof savedGame.ClickingPower !== "undefined") {
+        ClickingPower = savedGame.ClickingPower;
+    }
+    if (typeof savedGame.tagCost !== "undefined") {
+        tagCost = savedGame.tagCost;
+    }
+    if (typeof savedGame.tags !== "undefined") {
+        tags = savedGame.tags;
+    }
+    if (typeof savedGame.VarCost !== "undefined") {
+        VarCost = savedGame.VarCost;
+    }
+    if (typeof savedGame.Vars !== "undefined") {
+       Vars = savedGame.Vars;
+    }
+    if (typeof savedGame.bakkieCost !== "undefined") {
+        bakkieCost = savedGame.bakkieCost;
+    }
+    if (typeof savedGame.bakkies !== "undefined") {
+        bakkies = savedGame.bakkies;
+    }
+}
+
+
+function resetGame() {
+    if (confirm("Are you sure you want to reset your game?")) {
+        var gameSave = {};
+        localStorage.setItem("gameSave", JSON.stringify(gameSave));
+        location.reload();
+    }
+}
+
+window.onload = function() {
+loadGame();
+updateSPS();
+document.getElementById("scripts").innerHTML = scripts;
+        document.getElementById("tagCost").innerHTML = tagCost;
+        document.getElementById("tags").innerHTML = tags;
+        document.getElementById("VarCost").innerHTML = VarCost;
+        document.getElementById("Vars").innerHTML = Vars;
+        document.getElementById("bakkieCost").innerHTML = bakkieCost;
+        document.getElementById("bakkies").innerHTML = bakkies;
+
+};
+
 setInterval (function () {
     scripts = scripts + tags;
     scripts = scripts + Vars * 5
@@ -84,4 +151,16 @@ setInterval (function () {
     document.title = scripts + " scripts - Javascript clicker";
 }, 1000); //1000 ms = 1secons lol
 
+setInterval(function() {
+saveGame();
+},30000);
+
 setInterval(() => { if (isNaN(scripts)) location.reload(); }, 100);
+
+
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.which == 83) {
+        event.preventDefault();
+        saveGame();
+    }
+}, false);
