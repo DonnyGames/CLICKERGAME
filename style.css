@@ -126,5 +126,10 @@ table span {
     color: #595959;
     width: 15%;
     font-family: roboto;;
+    
 }
 
+.buttonsection {
+    position: absolute;
+    left: -25vw;
+}
