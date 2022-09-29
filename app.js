@@ -20,13 +20,25 @@ var bakkies = 0;
 //functions//
 function addScore(amount) {
     scripts = scripts + amount;
-    document.getElementById("scripts").innerHTML = scripts;
 
+    if (scripts < 1000) {
+        document.getElementById("scripts").innerHTML = scripts;
+    } else {
+        document.getElementById("scripts").innerHTML = `${Math.round((scripts/1000) * 10) / 10}k`;
+    }
 }
+
+
 
 
 function imagePressed() {
     addScore(ClickingPower);
+
+    if (scripts < 1000) {
+        document.getElementById("scripts").innerHTML = scripts;
+    } else {
+        document.getElementById("scripts").innerHTML = `${Math.round((scripts/1000) * 10) / 10}k`;
+    }
 }
 
 function buyTag() {
@@ -164,3 +176,6 @@ document.addEventListener("keydown", function(event) {
         saveGame();
     }
 }, false);
+
+
+
