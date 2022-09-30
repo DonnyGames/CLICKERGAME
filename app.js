@@ -16,16 +16,14 @@ var ClickingPower = 1;
 var buttonVar =  document.getElementById("buttonVar");
 var bakkieCost = 1000;
 var bakkies = 0;
+var gitRepoCost = 5000;
+var gitRepos = 0;
 
 //functions//
 function addScore(amount) {
     scripts = scripts + amount;
+    document.getElementById("scripts").innerHTML = scripts;
 
-    if (scripts < 1000) {
-        document.getElementById("scripts").innerHTML = scripts;
-    } else {
-        document.getElementById("scripts").innerHTML = `${Math.round((scripts/1000) * 10) / 10}k`;
-    }
 }
 
 
@@ -34,11 +32,6 @@ function addScore(amount) {
 function imagePressed() {
     addScore(ClickingPower);
 
-    if (scripts < 1000) {
-        document.getElementById("scripts").innerHTML = scripts;
-    } else {
-        document.getElementById("scripts").innerHTML = `${Math.round((scripts/1000) * 10) / 10}k`;
-    }
 }
 
 function buyTag() {
@@ -80,11 +73,24 @@ function buyBakkie() {
         updateSPS();
     }
 }
+function buygitRepo() {
+    if (scripts >= gitRepoCost) {
+        scripts = scripts - gitRepoCost;
+        gitRepos = gitRepos + 1
+        gitRepoCost = Math.round(gitRepoCost * 1.15);
+        document.getElementById("scripts").innerHTML = scripts;
+        document.getElementById("gitRepoCost").innerHTML = gitRepoCost;
+        document.getElementById("gitRepos").innerHTML = gitRepos;
+        console.log(`Reprository ${gitRepos} has been bought successfully`);
+        updateSPS();
+    }
+}
 
 
 
-function updateSPS () {
-    scriptspersecond = tags + Vars * 5 + bakkies * 20;
+
+function updateSPS () { 
+    scriptspersecond = tags + Vars * 5 + bakkies * 20 + gitRepos * 75;
     document.getElementById("scriptspersecond").innerHTML = scriptspersecond;
 }
 
@@ -98,7 +104,9 @@ tags:tags,
 VarCost:VarCost,
 Vars:Vars,
 bakkieCost:bakkieCost,
-bakkies:bakkies
+bakkies:bakkies,
+gitRepoCost:gitRepoCost,
+gitRepos:gitRepos
 
     };
 
@@ -131,7 +139,14 @@ function loadGame() {
     if (typeof savedGame.bakkies !== "undefined") {
         bakkies = savedGame.bakkies;
     }
+    if (typeof savedGame.gitRepoCost !== "undefined") {
+        gitRepoCost = savedGame.gitRepoCost;
+    }
+    if (typeof savedGame.gitRepos !== "undefined") {
+        gitRepos = savedGame.gitRepos;
+    }
 }
+
 
 
 function resetGame() {
@@ -152,6 +167,8 @@ document.getElementById("scripts").innerHTML = scripts;
         document.getElementById("Vars").innerHTML = Vars;
         document.getElementById("bakkieCost").innerHTML = bakkieCost;
         document.getElementById("bakkies").innerHTML = bakkies;
+        document.getElementById("gitRepoCost").innerHTML = gitRepoCost;
+        document.getElementById("gitRepos").innerHTML = gitRepos;
 
 };
 
@@ -159,6 +176,7 @@ setInterval (function () {
     scripts = scripts + tags;
     scripts = scripts + Vars * 5
     scripts = scripts + bakkies * 20;
+    scripts = scripts + gitRepos * 75;
     document.getElementById("scripts").innerHTML = scripts;
     document.title = scripts + " scripts - Javascript clicker";
 }, 1000); //1000 ms = 1secons lol
